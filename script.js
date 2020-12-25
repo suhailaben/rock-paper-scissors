@@ -2,7 +2,7 @@ function computerPlay() {
 
     let rand = Math.floor(Math.random() * 30);
 
-    let result = rand > 18 ?  'rock' : rand > 8 ?  'paper' :  'scissors';
+    let result = rand > 19 ?  'rock' : rand > 9 ?  'paper' :  'scissors';
 
     return result;
 
@@ -52,8 +52,6 @@ function singleRound(playerSelection, computerSelection) {
 
 }
 
-
-
 // Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 
 function game(rounds) {
@@ -85,6 +83,6 @@ function game(rounds) {
     }
 }
 
-// Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+// Write a NEW function called game(). Use the previous function inside of this one to play a [multi] round game that keeps score and reports a winner or loser at the end.
 
 game(prompt('How many rounds?'))
