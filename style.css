@@ -18,7 +18,8 @@ body {
     "header"
     "rock"
     "paper"
-    "scissors";
+    "scissors"
+    "results";
 }
 
 header {
@@ -36,7 +37,6 @@ header > h1 {
 
 .container > div {
     display: grid;
-    grid-column: 1fr;
     justify-items: center;
     align-items: center;
 }
@@ -70,7 +70,7 @@ header > h1 {
     padding-right: 5px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
     .container {
         grid-template-areas:
         "header header header"
