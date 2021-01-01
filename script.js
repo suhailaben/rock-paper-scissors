@@ -84,5 +84,3 @@ function game(rounds) {
 }
 
 // Write a NEW function called game(). Use the previous function inside of this one to play a [multi] round game that keeps score and reports a winner or loser at the end.
-
-game(prompt('How many rounds?'))
