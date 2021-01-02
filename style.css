@@ -51,9 +51,17 @@ header > h1 {
     grid-area: rock;
 }
 
+#rock:hover {
+    background-color: #54A09D;
+}
+
 #paper {
     background-color: #C5979D;
     grid-area: paper;
+}
+
+#paper:hover {
+    background-color: #CCA4A9;
 }
 
 #scissors {
@@ -62,12 +70,17 @@ header > h1 {
     grid-area: scissors;
 }
 
+#scissors:hover {
+    background-color: #AA2422;
+}
+
 #results {
     background-color: #F2F7F2;
     grid-area: results;
     justify-self: left;
     padding-left: 5px;
     padding-right: 5px;
+    justify-items: stretch;
 }
 
 @media (min-width: 600px) {

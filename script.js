@@ -8,8 +8,6 @@ function computerPlay() {
 
 }
 
-// Your game is going to play against the computer, so begin with a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play.
-
 function singleRound(playerSelection, computerSelection) {
 
     playerSelection = playerSelection.toLowerCase();
@@ -18,7 +16,7 @@ function singleRound(playerSelection, computerSelection) {
         if (playerSelection === 'rock') {
             return `You both selected ${playerSelection}. This was a tie.`
         } else if (playerSelection === 'paper') {
-            return `You selected ${playerSelection} and computer selected ${computerSelection}. You win!`
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}. You win!`
         } else if (playerSelection === 'scissors') {
             return `You selected ${playerSelection} and the computer selected ${computerSelection}. You lose!`
         } else {
@@ -30,7 +28,7 @@ function singleRound(playerSelection, computerSelection) {
         if (playerSelection === 'paper') {
             return `You both selected ${playerSelection}. This was a tie.`
         } else if (playerSelection === 'scissors') {
-            return `You selected ${playerSelection} and computer selected ${computerSelection}. You win!`
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}. You win!`
         } else if (playerSelection === 'rock') {
             return `You selected ${playerSelection} and the computer selected ${computerSelection}. You lose!`
         } else {
@@ -42,7 +40,7 @@ function singleRound(playerSelection, computerSelection) {
         if (playerSelection === 'scissors') {
             return `You both selected ${playerSelection}. This was a tie.`
         } else if (playerSelection === 'rock') {
-            return `You selected ${playerSelection} and computer selected ${computerSelection}. You win!`
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}. You win!`
         } else if (playerSelection === 'paper') {
             return `You selected ${playerSelection} and the computer selected ${computerSelection}. You lose!`
         } else {
@@ -52,35 +50,95 @@ function singleRound(playerSelection, computerSelection) {
 
 }
 
-// Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+let step = 1;
+let totalWins = 0;
+let totalLosses = 0;
+let totalTies = 0;
 
-function game(rounds) {
-
-    let totalWins = 0;
-    let totalLosses = 0;
-    let totalTies = 0;
-
-    for (i = 0; i < rounds ; i++) {
-        let playerChoice = prompt('Rock, paper, or scissors?')
-        let fate = singleRound(playerChoice, computerPlay())
-        reaction = alert(fate);
-        totalLosses = totalLosses++
-        if (fate.includes('win')) {
-            totalWins++
-        } else if (fate.includes('lose')) {
-            totalLosses++
-        } else {
-            totalTies++
-        }
-    }
-
-    if (totalWins > totalLosses) {
-        alert(`You are the grand WINNER! Wins: ${totalWins}; Losses: ${totalLosses} Ties: ${totalTies}`)
-    } else if (totalLosses > totalWins) {
-        alert(`You are the grand LOSER! Wins: ${totalWins}; Losses: ${totalLosses} Ties: ${totalTies}`)
+rock.addEventListener('click', () => {
+    let result = singleRound('rock', computerPlay());
+    const results = document.querySelector('#results');
+    const resultsSingleRound = document.createElement('p');
+    if (result.includes('win')) {
+        totalWins++
+    } else if (result.includes('lose')) {
+        totalLosses++
     } else {
-        alert(`You tied. Wins: ${totalWins}; Losses: ${totalLosses}; Ties: ${totalTies}`)
+        totalTies++
     }
-}
+    if (step < 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        step++
+    } else if (step === 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        const finalResults = document.createElement('p');
+        finalResults.textContent = (totalWins > totalLosses) ? `You are the grand WINNER!` : (totalLosses > totalWins) ? `You are the grand LOSER!` : `You tied overall`;
+        results.appendChild(finalResults);
+        const finalScore = document.createElement('p');
+        finalScore.textContent = `Wins: ${totalWins}; Losses: ${totalLosses}; Ties: ${totalTies}`
+        results.appendChild(finalScore);
+        step++
+    } else return;
+});
 
-// Write a NEW function called game(). Use the previous function inside of this one to play a [multi] round game that keeps score and reports a winner or loser at the end.
+paper.addEventListener('click', () => {
+    let result = singleRound('paper', computerPlay());
+    const results = document.querySelector('#results');
+    const resultsSingleRound = document.createElement('p');
+    if (result.includes('win')) {
+        totalWins++
+    } else if (result.includes('lose')) {
+        totalLosses++
+    } else {
+        totalTies++
+    }
+    if (step < 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        step++
+    } else if (step === 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        const finalResults = document.createElement('p');
+        finalResults.textContent = (totalWins > totalLosses) ? `You are the grand WINNER!` : (totalLosses > totalWins) ? `You are the grand LOSER!` : `You tied overall`;
+        results.appendChild(finalResults);
+        const finalScore = document.createElement('p');
+        finalScore.textContent = `Wins: ${totalWins}; Losses: ${totalLosses}; Ties: ${totalTies}`
+        results.appendChild(finalScore);
+        step++
+    } else return;
+});
+
+scissors.addEventListener('click', () => {
+    let result = singleRound('scissors', computerPlay());
+    const results = document.querySelector('#results');
+    const resultsSingleRound = document.createElement('p');
+    if (result.includes('win')) {
+        totalWins++
+    } else if (result.includes('lose')) {
+        totalLosses++
+    } else {
+        totalTies++
+    }
+    if (step < 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        step++
+    } else if (step === 5) {
+        resultsSingleRound.textContent = `Round ${step}: ${result}`;
+        results.appendChild(resultsSingleRound);
+        const finalResults = document.createElement('p');
+        finalResults.textContent = (totalWins > totalLosses) ? `You are the grand WINNER!` : (totalLosses > totalWins) ? `You are the grand LOSER!` : `You tied overall`;
+        results.appendChild(finalResults);
+        const finalScore = document.createElement('p');
+        finalScore.textContent = `Wins: ${totalWins}; Losses: ${totalLosses}; Ties: ${totalTies}`
+        results.appendChild(finalScore);
+        step++
+    } else return;
+});
+
